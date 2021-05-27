@@ -46,8 +46,8 @@ class _SimpleRadios extends State<SimpleRadios> {
     List<Widget> radios = [];
 
     if (Fun.labelHidden(item)) {
-      radios.add(new Text(item['label'],
-          style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0)));
+      radios.add(new Text(item['label'], style: new TextStyle(fontSize: 16.0)));
+      radios.add(new SizedBox(height: 12));
     }
     radioValue = item['value'];
     for (var i = 0; i < item['items'].length; i++) {

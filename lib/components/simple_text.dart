@@ -51,7 +51,7 @@ class _SimpleText extends State<SimpleText> {
       label = new Container(
         child: new Text(
           item['label'],
-          style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+          style: new TextStyle(fontSize: 16.0),
         ),
       );
     }
@@ -74,7 +74,7 @@ class _SimpleText extends State<SimpleText> {
             onChanged: (String value) {
               item['value'] = value;
               // _handleChanged();
-            //  print(value);
+              //  print(value);
               widget.onChange(widget.position, value);
             },
             obscureText: item['type'] == "Password" ? true : false,

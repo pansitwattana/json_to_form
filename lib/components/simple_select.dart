@@ -47,9 +47,7 @@ class _SimpleSelect extends State<SimpleSelect> {
   Widget build(BuildContext context) {
     Widget label = SizedBox.shrink();
     if (Fun.labelHidden(item)) {
-      label = new Text(item['label'],
-          style:
-          new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0));
+      label = new Text(item['label'], style: new TextStyle(fontSize: 16.0));
     }
     return new Container(
       margin: new EdgeInsets.only(top: 5.0),
@@ -66,8 +64,7 @@ class _SimpleSelect extends State<SimpleSelect> {
                 widget.onChange(widget.position, newValue);
               });
             },
-            items:
-            item['items'].map<DropdownMenuItem<String>>((dynamic data) {
+            items: item['items'].map<DropdownMenuItem<String>>((dynamic data) {
               return DropdownMenuItem<String>(
                 value: data['value'],
                 child: new Text(
@@ -81,5 +78,4 @@ class _SimpleSelect extends State<SimpleSelect> {
       ),
     );
   }
-
 }

@@ -43,7 +43,7 @@ class _SimpleDate extends State<SimpleDate> {
       label = new Container(
         child: new Text(
           item['label'],
-          style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+          style: new TextStyle(fontSize: 16.0),
         ),
       );
     }
@@ -61,19 +61,19 @@ class _SimpleDate extends State<SimpleDate> {
                   //   selectDate();
                   // },
                   child: new TextFormField(
-                    readOnly: true,
-                    decoration: InputDecoration(
-                      //border: OutlineInputBorder(),
-                      hintText: item['value'] ?? "",
-                      //prefixIcon: Icon(Icons.date_range_rounded),
-                      suffixIcon: IconButton(
-                        onPressed: () {
-                          selectDate();
-                        },
-                        icon: Icon(Icons.calendar_today_rounded),
-                      ),
-                    ),
-                  )),
+                readOnly: true,
+                decoration: InputDecoration(
+                  //border: OutlineInputBorder(),
+                  hintText: item['value'] ?? "",
+                  //prefixIcon: Icon(Icons.date_range_rounded),
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      selectDate();
+                    },
+                    icon: Icon(Icons.calendar_today_rounded),
+                  ),
+                ),
+              )),
             ],
           )
         ],
@@ -87,10 +87,9 @@ class _SimpleDate extends State<SimpleDate> {
         initialDate: new DateTime.now().subtract(new Duration(days: 360)),
         firstDate: new DateTime.now().subtract(new Duration(days: 360)),
         lastDate: new DateTime.now().add(new Duration(days: 360)));
-    if(picked!=null) {
+    if (picked != null) {
       String date =
-          "${picked.year.toString()}-${picked.month.toString().padLeft(
-          2, '0')}-${picked.day.toString().padLeft(2, '0')}";
+          "${picked.year.toString()}-${picked.month.toString().padLeft(2, '0')}-${picked.day.toString().padLeft(2, '0')}";
       this.setState(() {
         item['value'] = date;
         widget.onChange(widget.position, date);
