@@ -61,15 +61,31 @@ class _SimpleText extends State<SimpleText> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           label,
+          new SizedBox(height: 8),
           new TextFormField(
             controller: null,
             initialValue: item['value'] ?? null,
-            decoration: item['decoration'] ??
-                widget.decorations[item['key']] ??
-                new InputDecoration(
-                  hintText: item['placeholder'] ?? "",
-                  helperText: item['helpText'] ?? "",
+            decoration: InputDecoration(
+              hintText: item['placeholder'] ?? "",
+              helperText: item['helpText'] ?? "",
+              border: new OutlineInputBorder(
+                borderRadius: const BorderRadius.all(
+                  const Radius.circular(12.0),
                 ),
+                borderSide: BorderSide(
+                  width: 0,
+                  style: BorderStyle.none,
+                ),
+              ),
+              fillColor: Color(0xfff5f6f9),
+              filled: true,
+            ),
+            // decoration: item['decoration'] ??
+            //     widget.decorations[item['key']] ??
+            //     new InputDecoration(
+            //       hintText: item['placeholder'] ?? "",
+            //       helperText: item['helpText'] ?? "",
+            //     ),
             maxLines: item['type'] == "TextArea" ? 10 : 1,
             onChanged: (String value) {
               item['value'] = value;

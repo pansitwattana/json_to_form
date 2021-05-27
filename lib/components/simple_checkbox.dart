@@ -43,7 +43,7 @@ class _SimpleListCheckbox extends State<SimpleListCheckbox> {
     super.initState();
     item = widget.item;
     for (var i = 0; i < item['items'].length; i++) {
-      if(item['items'][i]['value']==true){
+      if (item['items'][i]['value'] == true) {
         selectItems.add(i);
       }
     }
@@ -53,8 +53,8 @@ class _SimpleListCheckbox extends State<SimpleListCheckbox> {
   Widget build(BuildContext context) {
     List<Widget> checkboxes = [];
     if (Fun.labelHidden(item)) {
-      checkboxes.add(new Text(item['label'],
-          style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0)));
+      checkboxes
+          .add(new Text(item['label'], style: new TextStyle(fontSize: 16.0)));
     }
     for (var i = 0; i < item['items'].length; i++) {
       checkboxes.add(

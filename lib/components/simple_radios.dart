@@ -57,6 +57,7 @@ class _SimpleRadios extends State<SimpleRadios> {
             new Expanded(child: new Text(item['items'][i]['label'])),
             new Radio<dynamic>(
                 value: item['items'][i]['value'],
+                activeColor: Color(0xff41bcb1),
                 groupValue: radioValue,
                 onChanged: (dynamic value) {
                   this.setState(() {
