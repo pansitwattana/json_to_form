@@ -61,7 +61,7 @@ class _SimpleText extends State<SimpleText> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           label,
-          new SizedBox(height: 8),
+          new SizedBox(height: 16),
           new TextFormField(
             controller: null,
             initialValue: item['value'] ?? null,

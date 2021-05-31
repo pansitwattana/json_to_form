@@ -63,6 +63,7 @@ class _SimpleListCheckbox extends State<SimpleListCheckbox> {
             new Expanded(child: new Text(item['items'][i]['label'])),
             new Checkbox(
               value: item['items'][i]['value'],
+              activeColor: Color(0xff41bcb1),
               onChanged: (bool value) {
                 this.setState(
                   () {
