@@ -65,7 +65,9 @@ class _CoreFormState extends State<JsonSchema> {
   }
 
   onSave() {
-    widget.actionSave(formGeneral);
+    if (_formKey.currentState.validate()) {
+      widget.actionSave(formGeneral);
+    }
   }
 
   List<Widget> jsonToForm() {
