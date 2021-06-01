@@ -7,6 +7,14 @@ import 'components/index.dart';
 import 'components/simple_date.dart';
 import 'components/simple_radios.dart';
 
+class JsonSchemaController {
+  VoidCallback save;
+
+  void dispose() {
+    save = null;
+  }
+}
+
 class JsonSchema extends StatefulWidget {
   const JsonSchema({
     @required this.form,
@@ -20,6 +28,7 @@ class JsonSchema extends StatefulWidget {
     this.keyboardTypes = const {},
     this.buttonSave,
     this.actionSave,
+    this.controller,
   });
 
   final Map errorMessages;
@@ -33,6 +42,7 @@ class JsonSchema extends StatefulWidget {
   final Function actionSave;
   final ValueChanged<dynamic> onChanged;
   final AutovalidateMode autovalidateMode;
+  final JsonSchemaController controller;
 
   @override
   _CoreFormState createState() =>
@@ -43,6 +53,20 @@ class _CoreFormState extends State<JsonSchema> {
   final dynamic formGeneral;
 
   int radioValue;
+  JsonSchemaController controller;
+
+  @override
+  void initState() {
+    JsonSchemaController _controller = widget.controller;
+    if (_controller != null) {
+      _controller.save = onSave;
+    }
+    super.initState();
+  }
+
+  onSave() {
+    widget.actionSave(formGeneral);
+  }
 
   List<Widget> jsonToForm() {
     List<Widget> listWidget = new List<Widget>();
